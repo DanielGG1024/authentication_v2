@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto mt-5">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="account">Account</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="accountlHelp"
+                        placeholder="Enter account" name="email" value="{{email}}">
+                    {{!-- <small id="emailHelp" class="form-text text-muted">We'll never share your account with anyone
+                        else.</small> --}}
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Password" name="password"
+                        value="{{password}}">
+                </div>
+                {{#if notification }}
+                <div class="form-group">
+                    <input type="text" value="帳號或密碼錯誤!!" disabled>
+                </div>
+                {{/if}}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</div>
