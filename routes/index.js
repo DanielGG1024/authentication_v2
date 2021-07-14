@@ -4,7 +4,22 @@ const router = express.Router()
 const User = require('../models/userDataSchema')
 
 router.get('/', (req, res) => {
-    res.render('login',)
+    const email = req.cookies.email
+    const password = req.cookies.password
+    if (!email || !password) {
+        console.log('email or password are empty')
+        res.render('login')
+    }
+    User.find({ email, password })
+        .lean()
+        .then(function (user) {
+            if (user.length === 1) {
+                res.render('index', { firstName: user[0].firstName })
+            } else {
+                res.render('login')
+            }
+        })
+        .catch(error => console.log(error))
 })
 
 router.post('/login', (req, res) => {
@@ -13,16 +28,15 @@ router.post('/login', (req, res) => {
     User.find({ email, password })
         .lean()
         .then(function (user) {
-            // console.log(user)
             if (user.length === 1) {
+                res.cookie('email', `${email}`)
+                res.cookie('password', `${password}`)
                 res.render('index', { firstName: user[0].firstName })
             } else {
-                res.render('login', { email, password, notification: 1})
+                res.render('login', { email, password, notification: 1 })
             }
         })
         .catch(error => console.log(error))
 })
-
-
 
 module.exports = router
