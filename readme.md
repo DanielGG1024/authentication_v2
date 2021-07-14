@@ -1,10 +1,11 @@
 # login
 
-![image]()
+
 
 ## Features
 
 1. 驗證是否符合資料內的帳號密碼
+2. 嘗試保持登入
 
 ## Environment SetUp
 
