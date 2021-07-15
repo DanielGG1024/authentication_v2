@@ -19,7 +19,7 @@
 
 1. clone 此專案
 ```
-git clone https://github.com/DanielGG1024/authentication_login.git
+git clone https://github.com/DanielGG1024/authentication_v2.git
 ```
 2. 使用終端機移動至該目錄
 ```
