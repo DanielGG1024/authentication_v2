@@ -23,7 +23,7 @@ git clone https://github.com/DanielGG1024/authentication_v2.git
 ```
 2. 使用終端機移動至該目錄
 ```
-cd authentication_login 
+cd authentication_v2-main
 ```
 3. 安裝npm 套件
 ```
